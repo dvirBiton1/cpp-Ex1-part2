@@ -21,7 +21,7 @@ namespace ariel
         {
             throw runtime_error("s1 & s2 can't be the same symbol");
         }
-        else if (s1 < 33 || s2 < 33)
+        else if (s1 < 33 || s2 < 33 || s1 > 126 || s2 >126)
         {
             throw runtime_error("unvalid symbol");
         }
@@ -41,9 +41,9 @@ namespace ariel
                 myMat1[i][j] = min(i, j);
                 myMat2[i][j] = min(row - i - 1, col - j - 1);
                 myMat1[i][j] = min(myMat1[i][j], myMat2[i][j]);
-                cout << myMat1[i][j];
+                // cout << myMat1[i][j];
             }
-            cout << endl;
+            // cout << endl;
         }
         // for (int i = 0; i < row; i++)
         // {
@@ -84,11 +84,11 @@ namespace ariel
         }
         for (int i = 0; i < row; ++i)
         {
-            free(myMat1[i]);
-            free(myMat2[i]);
+            delete[] myMat1[i];
+            delete[] myMat2[i];
         }
-        free(myMat1);
-        free(myMat2);
+        delete[] myMat1;
+        delete[] myMat2;
         // cout << "out mat:\n"
         //      << outMat;
         return outMat;
