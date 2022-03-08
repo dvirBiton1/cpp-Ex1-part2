@@ -7,6 +7,10 @@
 using namespace std;
 namespace ariel
 {
+    /*
+    that func get 2 num and 2 symbol שnd if indeed meets the conditions 
+    the func return string(mat with the two symbol).
+    */
     string mat(int col, int row, char s1, char s2)
     {
         if (row <= 0 || col <= 0)
