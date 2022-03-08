@@ -17,10 +17,6 @@ namespace ariel
         {
             throw runtime_error("Mat size is always odd");
         }
-        else if (s1 == s2)
-        {
-            throw runtime_error("s1 & s2 can't be the same symbol");
-        }
         else if (s1 < 33 || s2 < 33 || s1 > 126 || s2 >126)
         {
             throw runtime_error("unvalid symbol");

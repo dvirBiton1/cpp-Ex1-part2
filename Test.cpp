@@ -37,6 +37,7 @@ TEST_CASE("Good input")
     CHECK(nospaces(mat(3, 3, '$', '+')) == nospaces("$$$\n$+$\n$$$"));
     CHECK(nospaces(mat(1, 1, '#', ')')) == nospaces("#"));
     CHECK(nospaces(mat(1, 1, ')', '#')) == nospaces(")"));
+    CHECK(nospaces(mat(9, 3, '@', '@')) == nospaces("@@@@@@@@@\n@@@@@@@@@\n@@@@@@@@@"));
 }
 // Mat can't be zero
 TEST_CASE("Zero input")
@@ -75,11 +76,7 @@ TEST_CASE("Real symbol input")
     CHECK_THROWS(mat(1, 3, '\r', '-'));
     CHECK_THROWS(mat(1, 3, '\r', '\r'));
 }
-//Symbol 1 can't be same as symbol 2
-TEST_CASE("Same symbol")
-{
-    CHECK_THROWS(mat(2, 3, '@', '@'));
-}
+//the mat is not palindrom mat
 TEST_CASE("palindrom mat")
 {
     string palindrom = nospaces(mat(3, 3, '@', '-'));
