@@ -3,37 +3,43 @@
 #include <iostream>
 #include <algorithm>
 #include <stdexcept>
+#include <vector>
 
 using namespace std;
-namespace ariel
-{
+namespace ariel{
+
     /*
     that func get 2 num and 2 symbol שnd if indeed meets the conditions 
     the func return string(mat with the two symbol).
     */
     string mat(int col, int row, char s1, char s2)
     {
+        vector<vector<int>> matrix(row, vector<int>(col));
+        int const minChar = 33;
+        int const maxChar = 126;
         if (row <= 0 || col <= 0)
         {
             throw runtime_error("Mat size is unegative or zero");
         }
-        else if (row % 2 == 0 || col % 2 == 0)
+        if (row % 2 == 0 || col % 2 == 0)
         {
             throw runtime_error("Mat size is always odd");
         }
-        else if (s1 < 33 || s2 < 33 || s1 > 126 || s2 >126)
+        if (s1 < minChar || s2 < minChar || s1 > maxChar || s2 > maxChar)
         {
             throw runtime_error("unvalid symbol");
         }
-        string outMat = "";
-        int **myMat1 = new int *[row];
-        int **myMat2 = new int *[row];
-        for (int i = 0; i < row; ++i)
-        {
-            myMat1[i] = new int[col];
-            myMat2[i] = new int[col];
+        string outMat;
+        // int **myMat1 = new int *[row];
+        // int **myMat2 = new int *[row];
+        // for (int i = 0; i < row; ++i)
+        // {
+        //     myMat1[i] = new int[col];
+        //     myMat2[i] = new int[col];
 
-        }
+        // }
+        vector<vector<int>> myMat1(row, vector<int>(col));
+        vector<vector<int>> myMat2(row, vector<int>(col));
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
@@ -68,7 +74,7 @@ namespace ariel
         {
             for (int j = 0; j < col; j++)
             {
-                if (!(myMat1[i][j] % 2))
+                if ((myMat1[i][j] % 2) == 0)
                 {
                     outMat += s1;
                 }
@@ -82,13 +88,13 @@ namespace ariel
                 outMat += '\n';
             }
         }
-        for (int i = 0; i < row; ++i)
-        {
-            delete[] myMat1[i];
-            delete[] myMat2[i];
-        }
-        delete[] myMat1;
-        delete[] myMat2;
+        // for (int i = 0; i < row; ++i)
+        // {
+        //     delete[] myMat1[i];
+        //     delete[] myMat2[i];
+        // }
+        // delete[] myMat1;
+        // delete[] myMat2;
         // cout << "out mat:\n"
         //      << outMat;
         return outMat;
