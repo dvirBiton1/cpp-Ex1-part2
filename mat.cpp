@@ -1,11 +1,11 @@
 #include "mat.hpp"
 #include <string>
 #include <iostream>
-#include <algorithm>
+// #include <algorithm>
 #include <stdexcept>
 #include <vector>
-#include <typeinfo>
-#include <ctype.h>
+// #include <typeinfo>
+// #include <ctype.h>
 
 using namespace std;
 namespace ariel{
