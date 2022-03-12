@@ -1,6 +1,6 @@
 #!make -f
 
-CXX=clang++-9 
+CXX=clang++-9
 CXXFLAGS=-std=c++2a
 
 OBJECTS=mat.o
@@ -8,8 +8,8 @@ SOURCES=mat.cpp
 
 run: test
 	./$^
-# StudentTest1.o StudentTest2.o StudentTest3.o
-test: TestRunner.o Test.o $(OBJECTS) 
+#StudentTest1.o
+test: TestRunner.o  StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
 main: Main.o $(OBJECTS)
@@ -18,14 +18,17 @@ main: Main.o $(OBJECTS)
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
+# Ohad Madei
 # StudentTest1.cpp:  
-# 	curl https://raw.githubusercontent.com/YD5463/System-Programing-2/master/Test.cpp > $@
+# 	curl https://raw.githubusercontent.com/Ohad-Ma/carpets-maker-1/master/Test.cpp > $@
 
-# StudentTest2.cpp: 
-# 	curl https://raw.githubusercontent.com/shlomog12/ex1_partA/main/Test.cpp > $@
+# Dvir Biton
+StudentTest2.cpp: 
+	curl https://raw.githubusercontent.com/dvirBiton1/cpp-Ex1-part1/main/Test.cpp > $@
 
-# StudentTest3.cpp: 
-# 	curl https://raw.githubusercontent.com/EN555/EX1-c-/master/Test.cpp > $@
+# Gilad Livshitz
+StudentTest3.cpp: 
+	curl https://raw.githubusercontent.com/giladliv/Maarachot-B-Task-01/main/Test.cpp > $@
 
 tidy:
 	clang-tidy $(SOURCES) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-* --warnings-as-errors=* --

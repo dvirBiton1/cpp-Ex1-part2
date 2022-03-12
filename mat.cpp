@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <stdexcept>
 #include <vector>
+#include <typeinfo>
+#include <ctype.h>
 
 using namespace std;
 namespace ariel{
@@ -17,6 +19,7 @@ namespace ariel{
         vector<vector<int>> matrix(row, vector<int>(col));
         int const minChar = 33;
         int const maxChar = 126;
+        int number = 1;
         if (row <= 0 || col <= 0)
         {
             throw runtime_error("Mat size is unegative or zero");
@@ -25,7 +28,15 @@ namespace ariel{
         {
             throw runtime_error("Mat size is always odd");
         }
-        if (s1 < minChar || s2 < minChar || s1 > maxChar || s2 > maxChar)
+        if (typeid(col).name() != typeid(number).name() || typeid(row).name() != typeid(number).name())
+        {
+            throw runtime_error("problame with the type of int");
+        }
+        if (!(s1 >= minChar && s1 <= maxChar))
+        {
+            throw runtime_error("unvalid symbol");
+        }
+        if (!(s2 >= minChar && s2 <= maxChar))
         {
             throw runtime_error("unvalid symbol");
         }
