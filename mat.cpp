@@ -28,10 +28,10 @@ namespace ariel{
         {
             throw runtime_error("Mat size is always odd");
         }
-        if (typeid(col).name() != typeid(number).name() || typeid(row).name() != typeid(number).name())
-        {
-            throw runtime_error("problame with the type of int");
-        }
+        // if (typeid(col).name() != typeid(number).name() || typeid(row).name() != typeid(number).name())
+        // {
+        //     throw runtime_error("problame with the type of int");
+        // }
         if (!(s1 >= minChar && s1 <= maxChar))
         {
             throw runtime_error("unvalid symbol");
