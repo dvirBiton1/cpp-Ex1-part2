@@ -9,6 +9,42 @@ namespace ariel{
     /*
     that func get 2 num and 2 symbol and if indeed meets the conditions 
     the func return string(mat with the two symbol).
+    I crate 2 matrix:
+    The first take min between i,j;
+    0 0 0 0 0
+    0 1 1 1 1
+    0 1 2 2 2
+    0 1 2 3 3
+    0 1 2 3 4
+    0 1 2 3 4
+    0 1 2 3 4
+    The second take the min between row - i - 1, col - j - 1:
+    4 3 2 1 0
+    4 3 2 1 0
+    3 3 2 1 0
+    2 2 2 1 0
+    1 1 1 1 0
+    0 0 0 0 0
+    next I take the minium betwwn the two matrix:
+    0 0 0 0 0       4 3 2 1 0
+    0 1 1 1 1       4 3 2 1 0
+    0 1 2 2 2  min  4 3 2 1 0
+    0 1 2 3 3       3 3 2 1 0
+    0 1 2 3 4       2 2 2 1 0
+    0 1 2 3 4       1 1 1 1 0
+    0 1 2 3 4       0 0 0 0 0
+    what create the surface:
+    0 0 0 0 0
+    0 1 1 1 0
+    0 1 2 1 0
+    0 1 2 1 0
+    0 1 2 1 0
+    0 1 1 1 0
+    0 0 0 0 0
+    Then if the num in the index[i][j] % 2 == 0:
+    I append the first symbol.
+    else: I append the second symbol
+    after every row i append '\n' apart from the last row.(the main append this '\n').
     */
     string mat(int col, int row, char s1, char s2)
     {
