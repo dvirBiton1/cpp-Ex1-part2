@@ -48,6 +48,7 @@ cout<<"Enter char for s1:"<<endl;
 cin>>s1;
 cout<<"Enter char for s2:"<<endl;
 cin>>s2;
+cout<<"The result:"<<endl;
 cout<<mat(col,row,s1,s2)<<endl;
 return 0;
 }
