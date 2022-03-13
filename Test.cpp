@@ -75,18 +75,6 @@ TEST_CASE("Real symbol input")
             CHECK_THROWS(mat(1, 3, j, j));
         }     
     } 
-    CHECK_THROWS(mat(1, 3, '@', '\n'));
-    CHECK_THROWS(mat(1, 3, '\n', '-'));
-    CHECK_THROWS(mat(1, 3, '\n', '\n'));
-    CHECK_THROWS(mat(1, 3, '@', '\t'));
-    CHECK_THROWS(mat(1, 3, '\t', '-'));
-    CHECK_THROWS(mat(1, 3, '\t', '\t'));
-    CHECK_THROWS(mat(1, 3, '@', ' '));
-    CHECK_THROWS(mat(1, 3, ' ', '-'));
-    CHECK_THROWS(mat(1, 3, ' ', ' '));
-    CHECK_THROWS(mat(1, 3, '@', '\r'));
-    CHECK_THROWS(mat(1, 3, '\r', '-'));
-    CHECK_THROWS(mat(1, 3, '\r', '\r'));
 }
 // cheak if the mat is palindrom mat
 TEST_CASE("palindrom mat")
@@ -114,7 +102,7 @@ TEST_CASE("palindrom mat")
     }
 }
 // cheak if the row is palindrom
-TEST_CASE("palindrom row ")
+TEST_CASE("palindrom row")
 {
     int row = 1;
     int col = 1;
